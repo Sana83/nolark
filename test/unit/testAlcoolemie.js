@@ -1,5 +1,5 @@
 /**
-* Tests unitaires du projet Alcoolémie
+* Tests unitaires getAlcoolPur du projet Alcoolémie
 *
 */
 MesTestsUnitaires = TestCase('AlcoolemieTest');
@@ -9,7 +9,7 @@ MesTestsUnitaires.prototype.testsGetAlcoolPur = function() {
 };
 
 /**
-* Tests unitaires 2 du projet Alcoolémie
+* Tests unitaires getCoefDiffusion du projet Alcoolémie
 *
 */
 MesTestsUnitaires.prototype.testsGetCoefDiffusion = function() {
@@ -18,7 +18,7 @@ MesTestsUnitaires.prototype.testsGetCoefDiffusion = function() {
 };
 
 /**
-* Tests unitaires 3 du projet Alcoolémie
+* Tests unitaires getAlcoolemie du projet Alcoolémie
 *
 */
 MesTestsUnitaires.prototype.testsGetAlcoolemie = function() {
@@ -26,6 +26,22 @@ MesTestsUnitaires.prototype.testsGetAlcoolemie = function() {
     assertEquals('Femme 100 kg 1 verre', 0.17, getAlcoolemie('femme', 100, 1));
 };
 
+/**
+* Tests unitaires getAmande du projet Alcoolémie
+*
+*/
+MesTestsUnitaires.prototype.testsGetAmende = function() {
+ assertEquals('Moins de 0,8 g/l de sang', 'Minorée : 90 € / Forfaitaire : 135 € / Majorée : 375 €', getAmende(0.4));
+ assertEquals('A partir de 0,8 g/l', '4500 €', getAmende(0.8));
+};
 
-
+/**
+* Tests unitaires getSanction du projet Alcoolémie
+*
+*/
+MesTestsUnitaires.prototype.testsGetSanction = function() {
+ assertEquals('Moins de 0,8 g/l de sang', '6 points + suspension 3 ans',
+getSanction(0.4));
+ assertEquals('A partir de 0,8 g/l de sang', '6 points + 2 ans de prison + suspension 3 ans + stage de sensibilisation', getSanction(0.8));
+};
 
